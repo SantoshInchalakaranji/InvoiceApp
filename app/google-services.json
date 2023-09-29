@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "416845712131",
+    "project_id": "invoicegenerator-4791b",
+    "storage_bucket": "invoicegenerator-4791b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:416845712131:android:b62ac081f37c9ffd0bb736",
+        "android_client_info": {
+          "package_name": "com.prplmnstr.invoiceapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD4wPUgtO5yjultD4bK7YDJF6kn_DqlF5Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:416845712131:android:c16937e3c789ee500bb736",
+        "android_client_info": {
+          "package_name": "com.prplmnstr.invoicegeneratorapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD4wPUgtO5yjultD4bK7YDJF6kn_DqlF5Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
