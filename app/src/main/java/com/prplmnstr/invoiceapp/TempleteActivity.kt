@@ -48,6 +48,6 @@ class TempleteActivity : AppCompatActivity() {
         val invoice = Invoice("17",
             businessDetails,client,itemList,invoiceDetails,sign,discount,tax)
 
-        templete1.createPdf(this,this,invoice)
+      //  templete1.createPdf(this,this,invoice)
     }
 }
