@@ -4,9 +4,10 @@ import androidx.room.ColumnInfo
 import androidx.room.Embedded
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.prplmnstr.invoiceapp.utils.Constants
 
 
-@Entity(tableName ="invoice")
+@Entity(tableName =Constants.INVOICE_TABLE)
 data class Invoice(
     @PrimaryKey(autoGenerate = false)
     @ColumnInfo(name = "invoice_number")
@@ -14,15 +15,15 @@ data class Invoice(
     @ColumnInfo(name = "business_details")
     val businessDetails: BusinessDetails,
     @ColumnInfo(name = "client")
-    val client: String,
+    val client: Client,
     @ColumnInfo(name = "items")
-    val items: String,
+    val items: List<Item>,
     @ColumnInfo(name = "invoice_details")
-    val invoiceDetails: String,
+    val invoiceDetails: InvoiceDetails,
     @ColumnInfo(name = "sign")
     val signatureImageUrl: String?,
     @ColumnInfo(name = "discount")
-    val overallDiscount:String?,
+    val overallDiscount: Discount?,
     @ColumnInfo(name = "tax")
-    val tax: String?
+    val tax: Tax?
 )

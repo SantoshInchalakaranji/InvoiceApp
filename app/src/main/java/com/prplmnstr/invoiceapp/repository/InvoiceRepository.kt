@@ -1,9 +1,11 @@
 package com.prplmnstr.invoiceapp.repository
 
-import com.prplmnstr.invoiceapp.data.database.InvoiceDao
+import com.prplmnstr.invoiceapp.data.database.firebase.FirebaseDataSource
+import com.prplmnstr.invoiceapp.data.database.firebase.FirebaseResult
+import com.prplmnstr.invoiceapp.data.database.room.InvoiceDao
 import com.prplmnstr.invoiceapp.model.Invoice
 
-class InvoiceRepository(private val dao : InvoiceDao) {
+class InvoiceRepository(private val dao : InvoiceDao ,private val firebaseDataSource: FirebaseDataSource) {
 
 
 
@@ -15,12 +17,20 @@ class InvoiceRepository(private val dao : InvoiceDao) {
         return dao.updateInvoice(invoice)
     }
 
-//    suspend fun delete(subscriber: Subscriber) : Int{
-//        return dao.deleteSubscriber(subscriber)
-//    }
-//
-//    suspend fun deleteAll() : Int{
-//        return dao.deleteAll()
-//    }
+    suspend fun delete(invoice: Invoice) : Int{
+        return dao.deleteInvoice(invoice)
+    }
+
+    // New methods for Firebase operations
+
+    suspend fun addInvoiceToFirebase(invoice: Invoice):FirebaseResult {
+        return  firebaseDataSource.addInvoiceToFirebase(invoice)
+
+    }
+
+    suspend fun updateInvoiceInFirebase(invoice: Invoice):FirebaseResult {
+        return  firebaseDataSource.updateInvoiceInFirebase(invoice)
+
+    }
 
 }

@@ -1,4 +1,4 @@
-package com.prplmnstr.invoiceapp.data.database
+package com.prplmnstr.invoiceapp.data.database.room
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
