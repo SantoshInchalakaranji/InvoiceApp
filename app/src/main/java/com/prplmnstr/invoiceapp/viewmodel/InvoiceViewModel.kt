@@ -5,7 +5,13 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.prplmnstr.invoiceapp.data.database.firebase.FirebaseResult
+import com.prplmnstr.invoiceapp.model.BusinessDetails
+import com.prplmnstr.invoiceapp.model.Client
+import com.prplmnstr.invoiceapp.model.Discount
+import com.prplmnstr.invoiceapp.model.DiscountType
 import com.prplmnstr.invoiceapp.model.Invoice
+import com.prplmnstr.invoiceapp.model.InvoiceDetails
+import com.prplmnstr.invoiceapp.model.Tax
 import com.prplmnstr.invoiceapp.repository.InvoiceRepository
 import com.prplmnstr.invoiceapp.utils.Event
 import kotlinx.coroutines.Dispatchers
@@ -16,7 +22,37 @@ class InvoiceViewModel(private val repository: InvoiceRepository) : ViewModel(){
 
 
     private val statusMessage = MutableLiveData<Event<String>>()
+    val invoiceObject=MutableLiveData<Invoice>()
 
+
+    init {
+        val sampleInvoice = Invoice(
+          businessDetails = BusinessDetails("","",
+              "","","","",""),
+            client = Client(
+                null,"fresh mart","emailclient","123456789","billing address",
+                "gst","shipping address"
+            ),
+            invoiceNumber = "INV0000",
+            overallDiscount = Discount(DiscountType.FLAT_AMOUNT,1000.0,1000.0),
+            tax = Tax("IGST",12.0,1000.0),
+            items = emptyList(),
+            invoiceDetails = InvoiceDetails("INVOICE",
+                "inv00001","12/03/2023",
+                "22/12/2023","ENGLISH",
+                1,
+                "terms and condition",
+                "INR",
+                "COD",
+                1000.0,
+                200.0,200.0),
+            signatureImageUrl = ""
+
+
+
+        )
+        invoiceObject.value = sampleInvoice
+    }
     val message : LiveData<Event<String>>
         get() = statusMessage
 

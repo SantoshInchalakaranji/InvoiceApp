@@ -33,7 +33,7 @@ class TempleteActivity : AppCompatActivity() {
             200.0,200.0)
 
         var client = Client(
-            "fresh mart","emailclient","123456789","billing address",
+            null,"fresh mart","emailclient","123456789","billing address",
             "gst","shipping address"
         )
         var discount = Discount(DiscountType.FLAT_AMOUNT,1000.0,1000.0)
@@ -41,13 +41,13 @@ class TempleteActivity : AppCompatActivity() {
         var sign = "sign"
         var itemList:MutableList<Item> = mutableListOf()
         var item1 = Item(
-            "itemName",123.0,
+            null,"itemName",123.0,
             1.0,"",12.0,5.0,1000.0)
         itemList.add(item1)
 
         val invoice = Invoice("17",
             businessDetails,client,itemList,invoiceDetails,sign,discount,tax)
 
-      //  templete1.createPdf(this,this,invoice)
+        templete1.createPdf(this,this,invoice)
     }
 }

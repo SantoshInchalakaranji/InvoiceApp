@@ -7,6 +7,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.BitmapFactory
+import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.Rect
 import android.graphics.pdf.PdfDocument
@@ -18,6 +19,7 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
 import androidx.core.content.res.ResourcesCompat
+import com.itextpdf.text.PageSize
 //import com.itextpdf.text.PageSize
 import com.prplmnstr.invoiceapp.R
 import com.prplmnstr.invoiceapp.model.Invoice
@@ -29,9 +31,9 @@ class Templete1 {
 
     fun createPdf(context: Context, activity: Activity, invoice: Invoice){
 
-        var height = 1000
+        var height = PageSize.A4.height.toInt()
 
-        val width = 400
+        val width = PageSize.A4.width.toInt()
         val REQUEST_STORAGE_PERMISSION = 1
 
         if (ContextCompat.checkSelfPermission(
@@ -80,8 +82,33 @@ class Templete1 {
             )
 
             // Draw the image at the top-left corner
-            val imageRect = Rect(0, 0, canvas.width, (canvas.width.toFloat() / bitmap.width * bitmap.height).toInt())
+            val imageRect = Rect(0, 0, 100, 100)
             canvas.drawBitmap(bitmap, null, imageRect, null)
+
+
+            // Define paint styles
+            val textPaint = Paint()
+            textPaint.color = Color.BLACK
+            textPaint.textSize = 16f
+
+
+
+            val margin = 30f
+            val lineSpacing = 20f
+
+            // Define the invoice details
+            val invoiceTitle = "Invoice"
+            val invoiceNumber = "Invoice Number: ${invoice.invoiceNumber}"
+            val invoiceDate = "Invoice Date: ${invoice.invoiceDetails.creationDate}"
+            val dueDate = "Due Date: ${invoice.invoiceDetails.dueDate}"
+
+            // Draw the invoice details on the canvas
+            canvas.drawText(invoiceTitle, margin*2, imageRect.bottom + lineSpacing, titlePaint)
+            canvas.drawText(invoiceNumber, margin, imageRect.bottom + 2 * lineSpacing, textPaint)
+            canvas.drawText(invoiceDate, margin, imageRect.bottom + 3 * lineSpacing, textPaint)
+            canvas.drawText(dueDate, margin, imageRect.bottom + 4 * lineSpacing, textPaint)
+
+            // Draw other invoice details like client details, item list, etc., similarly
 
 
             //pdf writing end

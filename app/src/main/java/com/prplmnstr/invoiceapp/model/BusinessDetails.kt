@@ -1,11 +1,11 @@
 package com.prplmnstr.invoiceapp.model
 
 data class BusinessDetails(
-    val logoUrl: String?,
-    val name: String,
-    val email: String,
-    val phone: String,
-    val address: String,
-    val website: String?,
-    val gstNo: String
+    var logoUrl: String?,
+    var name: String,
+    var email: String,
+    var phone: String,
+    var address: String,
+    var website: String?,
+    var gstNo: String
 )

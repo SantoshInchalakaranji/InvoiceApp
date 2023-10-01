@@ -1,6 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/nav_graph">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/invoiceFragment">
 
+    <fragment
+        android:id="@+id/invoiceFragment"
+        android:name="com.prplmnstr.invoiceapp.InvoiceFragment"
+        android:label="Invoice"
+        tools:layout="@layout/fragment_invoice" >
+        <action
+            android:id="@+id/action_invoiceFragment_to_newInvoiceFragment"
+            app:destination="@id/newInvoiceFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/quotationFragment"
+        android:name="com.prplmnstr.invoiceapp.QuotationFragment"
+        android:label="Quotation"
+        tools:layout="@layout/fragment_quotation" />
+    <fragment
+        android:id="@+id/clientFragment"
+        android:name="com.prplmnstr.invoiceapp.ClientFragment"
+        android:label="Client"
+        tools:layout="@layout/fragment_client" />
+    <fragment
+        android:id="@+id/itemFragment"
+        android:name="com.prplmnstr.invoiceapp.ItemFragment"
+        android:label="Item"
+        tools:layout="@layout/fragment_item" />
+    <fragment
+        android:id="@+id/newInvoiceFragment"
+        android:name="com.prplmnstr.invoiceapp.NewInvoiceFragment"
+        android:label="New Invoice"
+        tools:layout="@layout/fragment_new_invoice" >
+        <action
+            android:id="@+id/action_newInvoiceFragment_to_signFragment"
+            app:destination="@id/signFragment" />
+        <action
+            android:id="@+id/action_newInvoiceFragment_to_bussinessInfoFragment"
+            app:destination="@id/bussinessInfoFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:popEnterAnim="@android:anim/slide_in_left"
+            app:popExitAnim="@android:anim/slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/signFragment"
+        android:name="com.prplmnstr.invoiceapp.SignFragment"
+        android:label="fragment_sign"
+        tools:layout="@layout/fragment_sign" />
+    <fragment
+        android:id="@+id/bussinessInfoFragment"
+        android:name="com.prplmnstr.invoiceapp.BussinessInfoFragment"
+        android:label="fragment_business_info"
+        tools:layout="@layout/fragment_business_info" />
 </navigation>

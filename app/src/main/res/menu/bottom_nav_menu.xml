@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/invoiceFragment"
+        android:icon="@drawable/invoice_long"
+        android:title="@string/invoices" />
+    <item
+        android:id="@+id/quotationFragment"
+        android:icon="@drawable/estimate"
+        android:title="@string/quotation" />
+    <item
+        android:id="@+id/clientFragment"
+        android:icon="@drawable/client"
+        android:title="@string/client" />
+    <item
+        android:id="@+id/itemFragment"
+        android:icon="@drawable/items"
+        android:title="@string/item" />
+</menu>
