@@ -59,14 +59,18 @@ class NewInvoiceFragment : Fragment() {
 //        // Set its visibility to GONE to hide it
 //        bottomNavView.visibility = View.GONE
 
-        binding.signatureArrow.setOnClickListener {
+        binding.signatureLayout.setOnClickListener {
             // Navigate to the NewInvoiceFragment
             findNavController().navigate(R.id.action_newInvoiceFragment_to_signFragment)
         }
 
-        binding.fromArrow.setOnClickListener {
+        binding.fromLayout.setOnClickListener {
             // Navigate to the NewInvoiceFragment
             findNavController().navigate(R.id.action_newInvoiceFragment_to_bussinessInfoFragment)
+        }
+        binding.invoiceInfoCard.setOnClickListener {
+            // Navigate to the NewInvoiceFragment
+            findNavController().navigate(R.id.action_newInvoiceFragment_to_invoiceInfoFragment)
         }
     }
 }

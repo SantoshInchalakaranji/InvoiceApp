@@ -1,26 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout>
-    <data>
-        <variable
-            name="viewModel"
-            type="com.prplmnstr.invoiceapp.viewmodel.LoginViewModel" />
-    </data>
 
+<data>
+    <variable
+        name="viewModel"
+        type="com.prplmnstr.invoiceapp.viewmodel.LoginViewModel" />
+</data>
+    <ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+    tools:context=".view.login.SignUpFragment">
 
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/white"
-    tools:context=".view.login.LoginFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="match_parent">
 
-        >
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="0dp"
@@ -45,8 +44,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="76dp"
-               android:fontFamily="@font/segeo_semi_bold"
-                android:text="Welcome\nBack"
+                android:fontFamily="@font/segeo_semi_bold"
+                android:text="Create\nAccount"
 
                 android:textColor="@color/off_white"
                 android:textSize="40dp"
@@ -61,7 +60,24 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.6" />
+            app:layout_constraintGuide_percent="0.6019152" />
+
+
+        <EditText
+            android:id="@+id/name_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:drawableLeft="@drawable/custom_person_icon"
+            android:drawablePadding="8dp"
+            android:hint="Business Name"
+            android:textColor="@color/blue_gray"
+            android:textSize="14sp"
+            android:text="@={viewModel.inputBusinessName}"
+
+            android:theme="@style/EditTextTheme"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/guideline" />
 
         <EditText
             android:id="@+id/email_et"
@@ -71,12 +87,12 @@
             android:drawableLeft="@drawable/custom_email_icon"
             android:drawablePadding="8dp"
             android:hint="Email"
-            android:text="@={viewModel.inputEmail}"
+            android:theme="@style/EditTextTheme"
             android:textColor="@color/blue_gray"
             android:textSize="14sp"
-            android:theme="@style/EditTextTheme"
+            android:text="@={viewModel.inputEmail}"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/guideline" />
+            app:layout_constraintTop_toBottomOf="@id/name_et" />
 
         <EditText
             android:id="@+id/pass_et"
@@ -84,8 +100,10 @@
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
             android:drawableLeft="@drawable/custom_password_icon"
+
             android:drawablePadding="8dp"
             android:hint="Password"
+            android:inputType="textPassword"
             android:textColor="@color/blue_gray"
             android:textSize="14sp"
             android:text="@={viewModel.inputPassword}"
@@ -94,85 +112,75 @@
             app:layout_constraintTop_toBottomOf="@id/email_et" />
 
         <TextView
-            android:id="@+id/forgot_pass_tv"
+            android:id="@+id/signup_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:background="@drawable/blue_rect_bg"
+            android:text="Sign up"
+            android:onClick="@{()->viewModel.signUpUser()}"
+            android:textAlignment="center"
+            android:fontFamily="@font/roboto_bold"
+            android:textColor="@color/white"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/pass_et" />
+
+        <View
+            android:id="@+id/line1"
+            android:layout_width="158dp"
+            android:layout_height="2dp"
+            android:layout_margin="16dp"
+            android:background="@color/gray"
+            app:layout_constraintEnd_toStartOf="@+id/guideline2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/or_tv"
+            app:layout_constraintBottom_toBottomOf="@id/or_tv"/>
+
+        <TextView
+            android:id="@+id/or_tv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="16dp"
-            android:padding="8dp"
+            android:layout_marginTop="16dp"
+            android:text="or"
+            android:textColor="@color/gray"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="@+id/guideline2"
+            app:layout_constraintStart_toStartOf="@id/guideline2"
+            app:layout_constraintTop_toBottomOf="@+id/signup_tv" />
 
-            android:text="Forgot Password ?"
-            android:textColor="@color/blue"
-            android:textStyle="bold"
+        <View
+            android:id="@+id/line2"
+            android:layout_width="158dp"
+            android:layout_height="2dp"
+            android:background="@color/gray"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/pass_et" />
+            app:layout_constraintStart_toStartOf="@+id/guideline2"
+            app:layout_constraintTop_toTopOf="@+id/line1" />
 
         <TextView
             android:id="@+id/login_tv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
-            android:background="@drawable/blue_rect_bg"
-            android:fontFamily="@font/roboto_bold"
-            android:text="Log in"
-            android:onClick="@{()->viewModel.checkEmailExistsInFirestoreAndLogin()}"
-            android:textAlignment="center"
-            android:textColor="@color/white"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/forgot_pass_tv" />
-
-        <View
-            android:id="@+id/line1"
-            android:layout_width="158dp"
-            android:layout_height="2dp"
-            android:background="@color/gray"
-            app:layout_constraintBottom_toBottomOf="@id/or_tv"
-            app:layout_constraintEnd_toStartOf="@+id/guideline4"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@id/or_tv" />
-
-        <TextView
-            android:id="@+id/or_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:layout_marginTop="12dp"
-            android:text="Or"
-            android:textColor="@color/gray"
-            android:textSize="12sp"
-            app:layout_constraintEnd_toEndOf="@+id/guideline4"
-            app:layout_constraintStart_toStartOf="@id/guideline4"
-            app:layout_constraintTop_toBottomOf="@+id/login_tv" />
-
-        <View
-            android:id="@+id/line2"
-            android:layout_width="158dp"
-            android:layout_height="2dp"
-            android:layout_margin="16dp"
-            android:background="@color/gray"
-            app:layout_constraintBottom_toBottomOf="@+id/or_tv"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="@+id/guideline4"
-            app:layout_constraintTop_toTopOf="@+id/or_tv" />
-
-
-        <TextView
-            android:id="@+id/signup_tv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginRight="16dp"
             android:background="@drawable/rect_bg"
+            android:text="Log in"
             android:fontFamily="@font/roboto_bold"
-            android:text="Sign up"
             android:textAlignment="center"
             android:textColor="@color/gray"
 
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/line1" />
+            app:layout_constraintTop_toBottomOf="@id/or_tv" />
 
+        <View
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            app:layout_constraintTop_toBottomOf="@id/login_tv"
+            app:layout_constraintStart_toStartOf="parent">
+
+        </View>
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline4"
+            android:id="@+id/guideline2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -180,6 +188,5 @@
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-</ScrollView>
+    </ScrollView>
 </layout>

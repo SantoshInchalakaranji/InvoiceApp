@@ -23,6 +23,18 @@
 
         <!-- Customize your toolbar here, e.g., add TextViews, buttons, etc. -->
 
+        <ImageView
+            android:id="@+id/logoutImage"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:background="@drawable/no_bg_ripple"
+            android:clickable="true"
+            android:layout_margin="16dp"
+            android:layout_gravity="end"
+            android:src="@drawable/baseline_more_vert_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
     </androidx.appcompat.widget.Toolbar>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton

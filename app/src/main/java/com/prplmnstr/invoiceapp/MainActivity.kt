@@ -25,11 +25,14 @@ import com.prplmnstr.invoiceapp.model.Tax
 import com.prplmnstr.invoiceapp.repository.InvoiceRepository
 import com.prplmnstr.invoiceapp.viewmodel.InvoiceViewModel
 import com.prplmnstr.invoiceapp.viewmodel.InvoiceViewModelFactory
+import com.prplmnstr.invoiceapp.viewmodel.LoginViewModel
+import com.prplmnstr.invoiceapp.viewmodel.LoginViewModelFactory
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
     lateinit var invoiceViewModel: InvoiceViewModel
+    private lateinit var loginViewModel: LoginViewModel
     private lateinit var navController: NavController
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,8 +44,9 @@ class MainActivity : AppCompatActivity() {
         val dao = AppDatabase.getInstance(application).invoiceDao
         val firebaseDataSource = FirebaseDataSource()
         val repository =InvoiceRepository(dao,firebaseDataSource)
-        val factory = InvoiceViewModelFactory(repository)
+        val factory = InvoiceViewModelFactory(repository,application)
         invoiceViewModel = ViewModelProvider(this,factory)[InvoiceViewModel::class.java]
+        loginViewModel = ViewModelProvider(this, LoginViewModelFactory(application))[LoginViewModel::class.java]
 
 
 

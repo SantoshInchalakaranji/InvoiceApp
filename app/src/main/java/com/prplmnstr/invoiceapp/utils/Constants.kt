@@ -11,5 +11,7 @@ class Constants {
 
         // Firestore
         const val INVOICE_COLLECTION = "Invoices"
+        const val USERS_COLLECTION = "Users"
+
     }
 }

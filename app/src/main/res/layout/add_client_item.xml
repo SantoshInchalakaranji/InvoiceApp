@@ -3,13 +3,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:padding="16dp">
+    android:paddingTop="8dp"
+    android:paddingBottom="8dp">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/first_card"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+
         android:elevation="4dp"
         app:cardCornerRadius="8dp"
         app:layout_constraintTop_toTopOf="parent"
@@ -38,6 +39,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="bsdjdn"
+                android:textStyle="bold"
                 android:textColor="@color/navy_blue"
                 android:textSize="14sp"
                 app:layout_constraintStart_toEndOf="@id/groupradio"

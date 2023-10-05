@@ -8,6 +8,10 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="blue">#2A62FF</color>
+    <color name="blue_varient4">#1a56ff</color>
+    <color name="blue_varient3">#4d7bff</color>
+    <color name="blue_varient2">#b3c7ff</color>
+    <color name="blue_varient1">#e5ecff</color>
     <color name="mediumGray">#D1D1D1</color>
 
     <color name="dark_blue">#2A62FF</color>
@@ -17,6 +21,7 @@
 
     <color name="off_white">#F8F9FD</color>
     <color name="background">#F8F9FD</color>
+    <color name="dark_gray">#A9A9A9</color>
 
 
     <color name="placeholderColor">@color/mediumGray</color>

@@ -1,16 +1,16 @@
 package com.prplmnstr.invoiceapp.model
 
 data class InvoiceDetails(
-    val title: String,
-    val number: String,
-    val creationDate: String,
-    val dueDate: String,
-    val language: String,
-    val template: Int,
-    val termsAndConditions: String,
-    val currency: String,
-    val paymentMethod: String,
-    val totalAmount:Double=0.0,
-    val subTotalAmount:Double =0.0,
-    val shippingAmount:Double=0.0
+    var title: String,
+    var number: String,
+    var creationDate: String,
+    var dueDate: String,
+    var language: String,
+    var template: Int,
+    var termsAndConditions: String,
+    var currency: String,
+    var paymentMethod: String,
+    var totalAmount:Double=0.0,
+    var subTotalAmount:Double =0.0,
+    var shippingAmount:Double=0.0
 )

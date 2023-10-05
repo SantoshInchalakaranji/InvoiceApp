@@ -1,5 +1,7 @@
 package com.prplmnstr.invoiceapp.viewmodel
 
+import SharedPreferencesManager
+import android.app.Application
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -18,27 +20,29 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class InvoiceViewModel(private val repository: InvoiceRepository) : ViewModel(){
+class InvoiceViewModel(private val repository: InvoiceRepository,private val application: Application) : ViewModel(){
 
 
     private val statusMessage = MutableLiveData<Event<String>>()
     val invoiceObject=MutableLiveData<Invoice>()
+    val sharedPreferencesManager = SharedPreferencesManager(application)
 
 
     init {
+       val invoiceNumber = sharedPreferencesManager.getInvoiceNumber()
         val sampleInvoice = Invoice(
           businessDetails = BusinessDetails("","",
               "","","","",""),
             client = Client(
-                null,"fresh mart","emailclient","123456789","billing address",
-                "gst","shipping address"
+                null,"","","","",
+                "",""
             ),
-            invoiceNumber = "INV0000",
+            invoiceNumber = "INV"+invoiceNumber,
             overallDiscount = Discount(DiscountType.FLAT_AMOUNT,1000.0,1000.0),
             tax = Tax("IGST",12.0,1000.0),
             items = emptyList(),
             invoiceDetails = InvoiceDetails("INVOICE",
-                "inv00001","12/03/2023",
+                "INV"+invoiceNumber,"12/03/2023",
                 "22/12/2023","ENGLISH",
                 1,
                 "terms and condition",
@@ -66,6 +70,11 @@ class InvoiceViewModel(private val repository: InvoiceRepository) : ViewModel(){
                 statusMessage.value = Event("Error Occurred!")
             }
         }
+    }
+
+    fun getInvoiceNumber(){
+
+        statusMessage.value = Event(sharedPreferencesManager.getInvoiceNumber().toString())
     }
 
     // New method to add invoice to Firebase
